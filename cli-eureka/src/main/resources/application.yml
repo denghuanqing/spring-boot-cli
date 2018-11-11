@@ -1,0 +1,17 @@
+server:
+  port: 6868
+
+eureka:
+  client:
+    register-with-eureka: false
+    fetch-registry: false
+  instance:
+    hostname: localhost
+
+spring:
+  security:
+    user:
+      name: user1
+      password: password2
+
+

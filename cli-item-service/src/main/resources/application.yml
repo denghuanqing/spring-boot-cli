@@ -1,0 +1,12 @@
+server:
+  port: 8081
+
+spring:
+  application:
+    name: item-service
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://user1:password2@localhost:6868/eureka/
+    register-with-eureka: true
