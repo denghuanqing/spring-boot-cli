@@ -7,10 +7,17 @@
   <groupId>com.poppy</groupId>
   <artifactId>spring-boot-cli</artifactId>
   <version>1.0-SNAPSHOT</version>
+  <packaging>pom</packaging>
 
   <name>spring-boot-cli</name>
-  <!-- FIXME change it to the project's website -->
   <url>http://www.example.com</url>
+
+  <modules>
+    <module>cli-eureka</module>
+    <module>cli-gateway</module>
+    <module>cli-item-service</module>
+    <module>cli-order-service</module>
+  </modules>
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
