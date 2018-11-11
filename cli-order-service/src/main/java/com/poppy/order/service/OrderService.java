@@ -40,7 +40,9 @@ public class OrderService {
         Order order = orderMap.get(orderId);
         List<OrderDetail> orderDetailList = order.getOrderDetailList();
         for (OrderDetail detail : orderDetailList) {
-            detail.setItem(itemService.findById(detail.getItem().getId()));
+            // 远程调用商品服务
+            Item item = itemService.findById(detail.getItem().getId());
+            detail.setItem(item);
         }
         return order;
     }
