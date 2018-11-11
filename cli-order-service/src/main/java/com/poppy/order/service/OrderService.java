@@ -19,6 +19,7 @@ import java.util.List;
 public class OrderService {
     @Autowired
     ItemService itemService;
+
     static HashMap<String, Order> orderMap = new HashMap<>(16);
 
     static {
@@ -41,7 +42,8 @@ public class OrderService {
         List<OrderDetail> orderDetailList = order.getOrderDetailList();
         for (OrderDetail detail : orderDetailList) {
             // 远程调用商品服务
-            Item item = itemService.findById(detail.getItem().getId());
+            Item item = itemService.findByIdByFeign(detail.getItem().getId());
+            System.out.println("远程获取商品服务：{}" + item.toString());
             detail.setItem(item);
         }
         return order;
