@@ -1,5 +1,5 @@
 server:
-  port: 8082
+  port: 8083
 
 spring:
   application:
@@ -10,3 +10,10 @@ eureka:
     serviceUrl:
       defaultZone: http://user1:password2@localhost:6868/eureka/
     register-with-eureka: true
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: hystrix.stream
+      base-path: /
