@@ -3,7 +3,11 @@ spring boot cloud architecture
 
 
 - cli-eureka:注册中心
-- cli-gateway:等待实现
+- cli-gateway:网关
+```
+spring boot 2.1.*与网关有冲突，采用Use Finchley and boot 2.0.x 
+https://github.com/spring-cloud/spring-cloud-gateway/issues/577
+```
 - cli-item-service:商品服务
 - cli-order-service:订单服务
 - cli-zipkin:链路追踪服务
