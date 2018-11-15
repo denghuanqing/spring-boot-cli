@@ -3,12 +3,22 @@ server:
 
 spring:
   application:
-    name: gateway
+    name: cloud-gateway
   cloud:
     gateway:
-      routes:
-      - id: path_route
-        uri: http://cxytiandi.com
-        predicates:
-        - Path=/course
+#      routes:
+#      - id: order-service
+#        uri: lb://order-service
+#        predicates:
+#        - Path=/order/**
+      discovery:
+        locator:
+          enabled: true
+          lower-case-service-id: true
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://user1:password2@localhost:6868/eureka/
+    register-with-eureka: true
 

@@ -7,6 +7,7 @@ spring boot cloud architecture
 ```
 spring boot 2.1.*与网关有冲突，采用Use Finchley and boot 2.0.x 
 https://github.com/spring-cloud/spring-cloud-gateway/issues/577
+gateway 整合注册中心自动转发服务：https://juejin.im/post/5b489d4be51d45198565921a
 ```
 - cli-item-service:商品服务
 - cli-order-service:订单服务
