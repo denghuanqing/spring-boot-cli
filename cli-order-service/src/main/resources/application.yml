@@ -1,5 +1,5 @@
 server:
-  port: 8083
+  port: 8086
 
 spring:
   application:
@@ -20,5 +20,8 @@ management:
   endpoints:
     web:
       exposure:
-        include: hystrix.stream
+        include: "*"
       base-path: /
+  endpoint:
+    health:
+      show-details: ALWAYS
