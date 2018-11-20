@@ -7,6 +7,9 @@ eureka:
     fetch-registry: false
   instance:
     hostname: localhost
+    lease-expiration-duration-in-seconds: 30
+  server:
+    enable-self-preservation: false  # dev 关闭自我保护
 
 spring:
   security:

@@ -14,6 +14,7 @@
 
   <modules>
     <module>cli-eureka</module>
+    <module>cli-admin</module>
     <module>cli-gateway</module>
     <module>cli-item-service</module>
     <module>cli-order-service</module>

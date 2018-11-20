@@ -15,7 +15,8 @@ eureka:
     serviceUrl:
       defaultZone: http://user1:password2@localhost:6868/eureka/
     register-with-eureka: true
-
+  instance:
+    lease-renewal-interval-in-seconds: 40
 management:
   endpoints:
     web:
