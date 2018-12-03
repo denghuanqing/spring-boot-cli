@@ -9,6 +9,20 @@ spring:
     sleuth:
       sampler:
         percentage: 1.0
+  cloud:
+    stream:
+      kafka:
+        binder:
+          brokers:
+          zk-nodes:
+          min-partition-count: 1
+          auto-create-topics: true
+          auto-add-partitions: true
+      bindings:
+        sourceA:
+          destination: test_spring_stream
+          producer:
+            partitionCount: 1
 
 eureka:
   client:
