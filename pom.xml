@@ -18,6 +18,7 @@
     <module>cli-gateway</module>
     <module>cli-item-service</module>
     <module>cli-order-service</module>
+    <module>cli-admin-service</module>
   </modules>
 
   <properties>
