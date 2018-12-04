@@ -1,10 +1,66 @@
 <!DOCTYPE html>
-<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>vue show</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 </head>
 <body>
+<div id="root">
+    <h1>{{msg}}</h1>
+    <div v-text="number"></div>
+    <div v-html="html"></div>
+    <button v-on:click="changeData">button</button>
 
+    <hr/>
+    <input v-model:value="name">
+    <h2>{{name}}</h2>
+
+    <hr/>
+    姓：<input v-model:value="preName" />
+    名：<input v-model:value="lasName" />
+    姓名：<p>{{getName}}</p>
+
+    <hr/>
+    <input v-model="question">
+    <p>{{ answer }}</p>
+
+    <hr/>
+    <p>指令演示</p>
+    <h1 v-if="1==2">Yes</h1>
+    <h1 v-else>No</h1>
+</div>
 </body>
+<script>
+    new Vue({
+        el: '#root',
+        data:{
+            msg: 'hello VUE',
+            number: 1234,
+            html: '<h1>hello world</h1>',
+            name: 'input',
+            preName: '',
+            lasName: '',
+            question: '',
+            answer: 'I cannot give you an answer until you ask a question!'
+        },
+        methods: {
+            changeData: function () {
+                this.msg = 'HELLO WORLD';
+            }
+        },
+        computed: {
+            getName: function () {
+                console.log(this.preName);
+                return this.preName + " " + this.lasName;
+            }
+        },
+        watch: {
+            // 如果 `question` 发生改变，这个函数就会运行
+            question: function (newQuestion, oldQuestion) {
+                this.answer = 'Waiting for you to stop typing...'
+                this.debouncedGetAnswer()
+            }
+        }
+    })
+</script>
 </html>
