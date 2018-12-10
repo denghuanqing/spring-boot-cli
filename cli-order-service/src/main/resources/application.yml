@@ -23,6 +23,11 @@ spring:
           destination: test_spring_stream
           producer:
             partitionCount: 1
+  data:
+    mongodb:
+      host: 10.72.8.97
+      port: 27017
+      database: mixcapp
 
 eureka:
   client:
