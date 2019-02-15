@@ -67,3 +67,15 @@ pagehelper:
   reasonable: true
   supportMethodsArguments: true
   params: count=countSql
+
+#jwt
+jwt:
+  header: Authorization
+  secret: mySecret
+  # token 过期时间 2个小时
+  expiration: 7200000
+  auth:
+    # 授权路径
+    path: /login
+    # 获取用户信息
+    account: /info
