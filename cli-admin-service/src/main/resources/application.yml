@@ -21,7 +21,7 @@ spring:
       number_format: '0.##'   #数字格式化，无小数点
   datasource:
     name: dev
-    url: jdbc:mysql://localhost:32769/boot_cli?characterEncoding=utf8
+    url: jdbc:mysql://localhost:32769/activiti?characterEncoding=utf8
     username: root
     password: 123456
     # 使用druid数据源
