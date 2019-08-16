@@ -1,8 +1,8 @@
 package com.poppy.order.service;
 
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
-import com.poppy.order.domain.Item;
-import com.poppy.order.rpc.IItemService;
+import com.poppy.item.entity.Item;
+import com.poppy.item.feign.ItemServiceApi;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.client.ServiceInstance;
 import org.springframework.cloud.client.discovery.DiscoveryClient;
@@ -21,7 +21,7 @@ public class ItemService {
     private DiscoveryClient discoveryClient;
 
     @Autowired
-    private IItemService iItemService;
+    private ItemServiceApi itemServiceApi;
 
     // 远程调用商品服务
     @Deprecated
@@ -35,7 +35,7 @@ public class ItemService {
 
     @HystrixCommand(fallbackMethod = "findByIdFall")
     public Item findByIdByFeign(Long itemId) {
-        return iItemService.findById(itemId);
+        return itemServiceApi.findById(itemId);
     }
 
     public Item findByIdFall(Long itemId) {

@@ -18,6 +18,7 @@ public class ItemController {
 
     @RequestMapping("/item/{item_id}")
     public Item get(@PathVariable("item_id") long itemId) {
+
         return itemService.findById(itemId);
     }
 }

@@ -1,6 +1,6 @@
 package com.poppy.order.service;
 
-import com.poppy.order.domain.Item;
+import com.poppy.item.entity.Item;
 import com.poppy.order.domain.Order;
 import com.poppy.order.domain.OrderDetail;
 import org.springframework.beans.factory.annotation.Autowired;

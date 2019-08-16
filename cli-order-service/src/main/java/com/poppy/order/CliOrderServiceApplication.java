@@ -13,7 +13,7 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
 @EnableHystrix
 @EnableCircuitBreaker
 @EnableHystrixDashboard
-@EnableFeignClients
+@EnableFeignClients(basePackages = {"com.poppy.item.feign"})
 public class CliOrderServiceApplication {
 
     public static void main(String[] args) {

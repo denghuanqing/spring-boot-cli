@@ -1,5 +1,7 @@
 package com.poppy.order.domain;
 
+import com.poppy.item.entity.Item;
+
 /**
  * @author poppy
  * @date 2018/11/11 16:35

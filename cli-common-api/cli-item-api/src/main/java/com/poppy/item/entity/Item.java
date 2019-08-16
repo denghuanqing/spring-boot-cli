@@ -1,4 +1,4 @@
-package com.poppy.order.domain;
+package com.poppy.item.entity;
 
 /**
  * @author poppy
