@@ -20,6 +20,7 @@
     <module>cli-order-service</module>
     <module>cli-admin-service</module>
     <module>cli-common-api</module>
+    <module>cli-security</module>
   </modules>
 
   <properties>

@@ -15,9 +15,9 @@ gateway 整合注册中心自动转发服务：https://juejin.im/post/5b489d4be5
 - cli-admin-service:8087 后台admin服务
 - cli-zipkin:9411 链路追踪服务
 - cli-common-api 包含服务通用的entity,feign_client
-    - cli-item-api 包含商品服务的通用模块
+    - cli-item-api 包含商品服务的通用模块,包含feign模块
     - cli-order-api 包含订单服务的通用模块
-     
+- cli-security:8088 统一认证鉴权中心  
 ```
 spring boot 2.*后不允许不支持自定义服务，官方只提供编译好的jar包供用户使用.
  1.[jar下载地址](https://search.maven.org/remote_content?g=io.zipkin.java&a=zipkin-server&v=LATEST&c=exec)

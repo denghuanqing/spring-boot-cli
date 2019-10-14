@@ -27,7 +27,7 @@ spring:
     mongodb:
       host: 10.72.8.97
       port: 27017
-      database: mixcapp
+      database: app
 
 eureka:
   client:
