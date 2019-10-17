@@ -13,4 +13,12 @@
         "scope": "app"
     }
     ```
-3. 
+3.
+
+
+采用密码认证
+1.  curl -X POST -u my-trusted-client:secret "http://localhost:8088/oauth/token?grant_type=password&username=user&password=1q2w3e"
+
+2.  http://localhost:8088/oauth/check_token?token=f57ce129-2d4d-4bd7-1111-f31ccc69d4d1
+
+3.  http://localhost:8088/refresh?refresh_token=&client_id=

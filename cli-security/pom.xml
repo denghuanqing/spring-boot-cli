@@ -36,38 +36,23 @@
             <artifactId>spring-boot-starter-actuator</artifactId>
         </dependency>
 
-        <!-- Spring Security -->
+        <!-- Spring Security oauth2 jwt -->
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-oauth2</artifactId>
         </dependency>
 
-        <!-- <dependency>
-             <groupId>org.springframework.security</groupId>
-             <artifactId>spring-security-jwt</artifactId>
-         </dependency>
-
-         <dependency>
-             <groupId>org.springframework.security</groupId>
-             <artifactId>spring-security-jwt</artifactId>
-         </dependency>-->
-
         <!-- jdbc -->
         <dependency>
-            <groupId>com.zaxxer</groupId>
-            <artifactId>HikariCP</artifactId>
-            <version>${hikaricp.version}</version>
+            <groupId>com.alibaba</groupId>
+            <artifactId>druid-spring-boot-starter</artifactId>
+            <version>1.1.13</version>
         </dependency>
+
+        <!-- mysql -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-jdbc</artifactId>
-            <exclusions>
-                <!-- 排除 tomcat-jdbc 以使用 HikariCP -->
-                <exclusion>
-                    <groupId>org.apache.tomcat</groupId>
-                    <artifactId>tomcat-jdbc</artifactId>
-                </exclusion>
-            </exclusions>
         </dependency>
         <dependency>
             <groupId>mysql</groupId>

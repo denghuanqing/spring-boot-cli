@@ -16,8 +16,15 @@ public class TbUserServiceImpl implements TbUserService {
 
     @Override
     public TbUser getByUsername(String username) {
-        Example example = new Example(TbUser.class);
-        example.createCriteria().andEqualTo("username", username);
-        return tbUserMapper.selectOneByExample(example);
+//        Example example = new Example(TbUser.class);
+//        example.createCriteria().andEqualTo("username", username);
+//        return tbUserMapper.selectOneByExample(example);
+
+        TbUser tbUser = new TbUser();
+        tbUser.setId(13L);
+        tbUser.setUsername("poppy");
+        tbUser.setPassword("$2a$10$h1cffmWXJ1ngxVchUj7S2OLBxeujFeutHqV8mLmYwcVbwR37vv2Ey");
+        return tbUser;
+
     }
 }
