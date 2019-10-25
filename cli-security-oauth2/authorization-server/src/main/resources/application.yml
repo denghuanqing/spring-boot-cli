@@ -1,11 +1,9 @@
 server:
   port: 8088
-  servlet:
-    context-path: /
 
 spring:
   application:
-    name: security-service
+    name: authorization-server
 #  security:
 #    user:
 #      name: root

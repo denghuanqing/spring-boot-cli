@@ -1,0 +1,26 @@
+server:
+  port: 8089
+
+spring:
+  application:
+    name: resource-server
+#  security:
+#    user:
+#      name: root
+#      password: 123456
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+      base-path: /actuator
+  endpoint:
+    health:
+      show-details: ALWAYS
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://user1:password2@localhost:6868/eureka/
+    register-with-eureka: true

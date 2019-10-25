@@ -9,10 +9,10 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.poppy</groupId>
-    <artifactId>cli-security</artifactId>
+    <artifactId>authorization-server</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>cli-security</name>
-    <description>cli-security</description>
+    <name>authorization-server</name>
+    <description>authorization-server</description>
 
     <properties>
         <java.version>1.8</java.version>

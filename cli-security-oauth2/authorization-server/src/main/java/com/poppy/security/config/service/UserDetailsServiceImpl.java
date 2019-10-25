@@ -40,6 +40,7 @@ public class UserDetailsServiceImpl implements UserDetailsService {
         User user = new User();
         user.setEmail("test@test.com");
         user.setEnabled(1);
+        user.setId("1112112122");
         user.setUserName("user");
         user.setPassword("1q2w3e");
 
