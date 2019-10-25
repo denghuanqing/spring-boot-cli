@@ -9,3 +9,5 @@ http://localhost:8081/security-service/oauth/token
 bug Spring cloud security 依赖Spring Boot web(tomcat Server)
 所以两者不兼容,
 资源服务器，单独剥离  cli-security-oauth2/resource-server
+
+//TODO  在网关解析token，调用资源服务器吧用户信息转换为业务内部的信息，真正提供服务的业务不再关心授权。
