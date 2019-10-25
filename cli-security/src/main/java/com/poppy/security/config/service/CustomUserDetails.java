@@ -1,5 +1,7 @@
-package com.poppy.security.domain;
+package com.poppy.security.config.service;
 
+import com.poppy.security.domain.TbUser;
+import com.poppy.security.domain.User;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.AuthorityUtils;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -9,10 +11,10 @@ import java.util.Collection;
 import java.util.List;
 
 public class CustomUserDetails implements UserDetails {
-    private TbUser user;
+    private User user;
     private List<String> userRoles;
 
-    public CustomUserDetails(TbUser user, List<String> userRoles) {
+    public CustomUserDetails(User user, List<String> userRoles) {
         this.user = user;
         this.userRoles = userRoles;
     }
@@ -30,7 +32,7 @@ public class CustomUserDetails implements UserDetails {
 
     @Override
     public String getUsername() {
-        return user.getUsername();
+        return user.getUserName();
     }
 
     @Override
@@ -50,12 +52,11 @@ public class CustomUserDetails implements UserDetails {
 
     @Override
     public boolean isEnabled() {
-//        if (user.getEnabled() == 1) return true;
-//        else return false;
-        return true;
+        if (user.getEnabled() == 1) return true;
+        else return false;
     }
 
     public String getId() {
-        return user.getId().toString();
+        return user.getId();
     }
 }

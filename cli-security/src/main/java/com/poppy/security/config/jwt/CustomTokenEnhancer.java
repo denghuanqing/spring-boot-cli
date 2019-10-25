@@ -1,7 +1,6 @@
 package com.poppy.security.config.jwt;
 
-import com.poppy.security.domain.CustomUserDetails;
-import org.springframework.context.annotation.Configuration;
+import com.poppy.security.config.service.CustomUserDetails;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.oauth2.common.DefaultOAuth2AccessToken;
 import org.springframework.security.oauth2.common.OAuth2AccessToken;
@@ -12,13 +11,13 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-/**
- * 增强access_token ,写入自定义信息
- */
-@Configuration
-public class JWTTokenEnhancer implements TokenEnhancer {
+import static org.apache.commons.lang.RandomStringUtils.randomAlphabetic;
+
+public class CustomTokenEnhancer implements TokenEnhancer {
     @Override
-    public OAuth2AccessToken enhance(OAuth2AccessToken accessToken, OAuth2Authentication authentication) {
+    public OAuth2AccessToken enhance(
+            OAuth2AccessToken accessToken,
+            OAuth2Authentication authentication) {
         CustomUserDetails customUserDetails = (CustomUserDetails) authentication.getPrincipal();
 
         String roles = "";
@@ -32,6 +31,7 @@ public class JWTTokenEnhancer implements TokenEnhancer {
         additionalInfo.put("uuid", customUserDetails.getId());
         additionalInfo.put("role", roles);
         ((DefaultOAuth2AccessToken) accessToken).setAdditionalInformation(additionalInfo);
+
         return accessToken;
     }
 }

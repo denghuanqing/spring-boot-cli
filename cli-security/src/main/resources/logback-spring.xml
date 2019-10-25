@@ -6,7 +6,7 @@
     <appender name="console" class="ch.qos.logback.core.ConsoleAppender">
         <!-- 级别过滤 -->
         <filter class="ch.qos.logback.classic.filter.LevelFilter">
-            <level>info</level>
+            <level>debug</level>
             <onMatch>ACCEPT</onMatch>
             <onMismatch>DENY</onMismatch>
         </filter>

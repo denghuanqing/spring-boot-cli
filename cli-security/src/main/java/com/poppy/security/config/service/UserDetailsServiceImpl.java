@@ -1,26 +1,21 @@
 package com.poppy.security.config.service;
 
 import com.google.common.collect.Lists;
-import com.poppy.security.domain.CustomUserDetails;
-import com.poppy.security.domain.TbPermission;
-import com.poppy.security.domain.TbUser;
+import com.poppy.security.domain.User;
 import com.poppy.security.service.TbPermissionService;
 import com.poppy.security.service.TbUserService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.authority.SimpleGrantedAuthority;
-import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
-import org.springframework.util.StringUtils;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
 
 /**
  * @description:
@@ -37,12 +32,17 @@ public class UserDetailsServiceImpl implements UserDetailsService {
     @Autowired
     private TbPermissionService tbPermissionService;
 
-    @Autowired
-    private BCryptPasswordEncoder passwordEncoder;
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        TbUser tbUser = tbUserService.getByUsername(username);
+//        TbUser tbUser = tbUserService.getByUsername(username);
+
+        User user = new User();
+        user.setEmail("test@test.com");
+        user.setEnabled(1);
+        user.setUserName("user");
+        user.setPassword("1q2w3e");
+
 
         List<GrantedAuthority> grantedAuthorities = Lists.newArrayList();
 //        if (tbUser != null) {
@@ -64,7 +64,7 @@ public class UserDetailsServiceImpl implements UserDetailsService {
 
         ArrayList<String> permission = Lists.newArrayList();
         permission.add("ROLE_USER");
-        return new CustomUserDetails(tbUser,permission);
-//        return new User(tbUser.getUsername(), tbUser.getPassword(), grantedAuthorities);
+
+        return new CustomUserDetails(user, permission);
     }
 }
