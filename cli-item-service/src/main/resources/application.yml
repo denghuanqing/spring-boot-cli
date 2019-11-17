@@ -13,18 +13,27 @@ spring:
     stream:
       kafka:
         binder:
-          brokers:
-          zk-nodes:
+          brokers: 10.72.9.62:9092
+          zkNodes: 10.72.9.62:2181
           min-partition-count: 1
           auto-create-topics: true
           auto-add-partitions: true
+
       bindings:
-        testa:
+        test_in:
+          binder: kafka
           destination: test_spring_stream
           group: item-service
+          content-type: text/plain #消息的格式
           consumer:
             concurrency: 1
             partitioned: false
+        test_out:
+          binder: kafka
+          destination: test_spring_stream #消息发往的目的地，对应topic
+          group: item-service #对应kafka的group
+          content-type: text/plain #消息的格式
+
 
 eureka:
   client:
