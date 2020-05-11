@@ -22,10 +22,11 @@ debug：当此属性设置为true时，将打印出logback内部日志信息，�
         -->
         <layout class="ch.qos.logback.classic.PatternLayout">
             <springProfile name="dev">
-                <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} ----> [%thread] ----> %-5level %logger{50} - %msg%n</pattern>
+                <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} ----> [%thread] [%X{X-B3-TraceId:-} %X{X-B3-SpanId:-} %X{X-Span-Export:-}] ----> %-5level %logger{50} - %msg%n</pattern>
             </springProfile>
             <springProfile name="!dev">
-                <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{50} - %msg%n</pattern>
+                <!-- 配置sleuth log style @link: https://cloud.spring.io/spring-cloud-static/spring-cloud-sleuth/2.2.2.RELEASE/reference/html/#json-logback-with-logstash -->
+                <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] [%X{X-B3-TraceId:-} %X{X-B3-SpanId:-} %X{X-Span-Export:-}] %-5level %logger{50} - %msg%n</pattern>
             </springProfile>
         </layout>
     </appender>
@@ -82,7 +83,7 @@ debug：当此属性设置为true时，将打印出logback内部日志信息，�
     root与logger是父子关系，没有特别定义则默认为root，任何一个类只会和一个logger对应，
     要么是定义的logger，要么是root，判断的关键在于找到这个logger，然后判断这个logger的appender和level。
     -->
-    <root level="info">
+    <root level="debug">
         <appender-ref ref="stdout" />
         <appender-ref ref="appLogAppender" />
     </root>
