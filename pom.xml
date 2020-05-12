@@ -21,6 +21,7 @@
     <module>cli-admin-service</module>
     <module>cli-common-api</module>
     <module>cli-security-oauth2</module>
+    <module>cli-dependencies</module>
   </modules>
 
   <properties>
