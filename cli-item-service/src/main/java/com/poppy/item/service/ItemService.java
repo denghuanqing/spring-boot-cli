@@ -3,7 +3,7 @@ package com.poppy.item.service;
 import com.poppy.item.domain.Item;
 import org.springframework.stereotype.Service;
 
-import java.util.HashMap;
+import java.util.*;
 
 /**
  * @author poppy
@@ -24,5 +24,15 @@ public class ItemService {
 
     public Item findById(Long itemId){
         return itemHashMap.get(itemId);
+    }
+
+    public List<Item> findList() {
+        ArrayList<Item> list = new ArrayList<>(16);
+        Set<Long> longs = itemHashMap.keySet();
+        Iterator<Map.Entry<Long, Item>> iterator = itemHashMap.entrySet().iterator();
+        while (iterator.hasNext()) {
+            list.add(iterator.next().getValue());
+        }
+        return list;
     }
 }

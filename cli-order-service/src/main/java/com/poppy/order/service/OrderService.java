@@ -48,4 +48,11 @@ public class OrderService {
         }
         return order;
     }
+
+    public List<Item> findItemList() {
+
+        // 远程调用商品服务
+        return itemService.findListByFeign();
+    }
+
 }

@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
+
 /**
  * @author poppy
  * @date 2018/11/11 16:19
@@ -20,6 +22,12 @@ public class ItemController {
 
     @Autowired
     ItemService itemService;
+
+    @RequestMapping("/item/list")
+    public List<Item> list() {
+        logger.info("query Item Servie list");
+        return itemService.findList();
+    }
 
     @RequestMapping("/item/{item_id}")
     public Item get(@PathVariable("item_id") long itemId) {

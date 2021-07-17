@@ -1,5 +1,6 @@
 package com.poppy.order.controller;
 
+import com.poppy.item.entity.Item;
 import com.poppy.order.domain.Order;
 import com.poppy.order.service.OrderService;
 import com.poppy.order.stream.producer.KafkaSender;
@@ -9,6 +10,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.util.List;
 
 /**
  * @author poppy
@@ -33,5 +36,10 @@ public class OrderController {
     public void add() {
         logger.info("send msg [{}]", "order create success!");
         sender.sendMessage("order create success!");
+    }
+
+    @RequestMapping("/order/item_list")
+    public List<Item> getItemList() {
+        return orderService.findItemList();
     }
 }

@@ -2,9 +2,12 @@ package com.poppy.item.feign;
 
 import com.poppy.item.entity.Item;
 import org.springframework.cloud.openfeign.FeignClient;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+
+import java.util.List;
 
 /**
  * @description:
@@ -16,5 +19,8 @@ public interface ItemServiceApi {
 
     @RequestMapping(value = "/item/{item_id}", method = RequestMethod.GET)
     Item findById(@PathVariable("item_id") Long itemId);
+
+    @GetMapping("/item/list")
+    List<Item> list();
 
 }
